@@ -42,7 +42,7 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
 
     // 负载均衡（轮询）
     this.config['proxy-groups'].push({
-        name: '🔄 负载均衡 (轮询)',
+        name: '⚖️ 负载均衡 (轮询)',
         type: 'load-balance',
         proxies: DeepCopy(proxyList),
         strategy: 'round-robin',
@@ -51,13 +51,13 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
 
     // 负载均衡（散列）
     this.config['proxy-groups'].push({
-        name: '🔄 负载均衡 (散列)',
+        name: '⚖️ 负载均衡 (散列)',
         type: 'load-balance',
         proxies: DeepCopy(proxyList),
         strategy: 'consistent-hashing'
     });
 
-    proxyList.unshift('DIRECT', 'REJECT', '⚡ 自动选择', '🔄 负载均衡 (轮询)', '🔄 负载均衡 (散列)');
+    proxyList.unshift('DIRECT', 'REJECT', '⚡ 自动选择', '⚖️ 负载均衡 (轮询)', '⚖️ 负载均衡 (散列)');
     outbounds.unshift('🚀 节点选择');
 
     outbounds.forEach(outbound => {
